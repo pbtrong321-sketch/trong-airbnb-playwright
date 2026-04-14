@@ -18,10 +18,7 @@ test.describe('Authentication Tests', () => {
         await homePage.avtBtn.click()
         const adminMenuItem = page.getByRole('link', { name: 'To page Admin' })
         await expect(adminMenuItem).toBeVisible()
-
         
-        
-        
-
     })  
+    
 })

@@ -57,5 +57,41 @@ test.describe('Admin Page Tests', () => {
         await adminPage.bookingManagementMenu.click()
         await expect(page).toHaveURL(/.*\/admin\/booking/) //url có chứa /admin/booking
     })
+    //tc6 hiển thị bảng danh sách người dùng trong trang quản lý người dùng
+    test("tc6: Verify user list table in User Management page", async ({ page }) => {
+        const adminPage = new AdminPage(page)
+        await adminPage.navigateToUserManagement()
+        const userTable = page.locator('table') // giả sử bảng danh sách người dùng được hiển thị dưới dạng thẻ <table>
+        await expect(userTable).toBeVisible() // xác nhận bảng danh sách người dùng hiển thị
+        // có thể thêm các xác nhận khác như kiểm tra số lượng hàng, cột, hoặc dữ liệu cụ thể trong bảng
+    })
+    //tc7 xác nhận chức năng tìm kiếm người dùng bằng email trong trang quản lý người dùng
+         // click vào thanh tìm kiếm vào nhập email cần tìm kiếm
+    test("tc7: Verify search user by email in User Management page", async ({ page }) => {
+        const adminPage = new AdminPage(page)
+        await adminPage.navigateToUserManagement()
+        const searchInput = page.getByPlaceholder('Tìm kiếm') // giả sử có một input tìm kiếm với placeholder 'Tìm kiếm theo email'
+        await searchInput.fill(adminAccount.email) // nhập email cần tìm kiếm
+        await searchInput.press('Enter') // nhấn Enter để thực hiện tìm kiếm
+        // hiển thị danh sách người dùng sau khi tìm kiếm
+        await expect(page.locator('table')).toBeVisible() // xác nhận bảng danh sách người dùng hiển thị sau khi tìm kiếm
+        // có thể thêm các xác nhận khác như kiểm tra số lượng hàng, cột, hoặc dữ liệu cụ thể trong bảng sau khi tìm kiếm
     
+    })  
+    //tc8 tìm kiếm theo mã id người dùng trong trang quản lý người dùng
+    test("tc8: Verify search user by ID in User Management page", async ({ page }) => {
+        const adminPage = new AdminPage(page)
+        await adminPage.navigateToUserManagement
+        const searchInput = page.getByPlaceholder('Tìm kiếm') // giả sử có một input tìm kiếm với placeholder 'Tìm kiếm
+        await searchInput.fill('123') // nhập mã id người dùng cần tìm kiếm
+        await searchInput.press('Enter') // nhấn Enter để thực hiện tìm kiếm
+        // hiển thị danh sách người dùng sau khi tìm kiếm
+        await expect(page.locator('table')).toBeVisible() // xác nhận bảng danh sách người dùng hiển thị sau khi tìm kiếm
+    })
+
+    
+    
+
+    
+
 })
