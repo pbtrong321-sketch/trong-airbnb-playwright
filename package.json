@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test:authentication": "playwright test auth --project=chromium --headed",
-    "test:admin": "playwright test test admin --project=chromium --headed"
-    
-   },
+    "test:admin": "playwright test test admin --project=chromium --headed",
+    "test:booking": "playwright test booking.spec.ts --project=chromium --headed",
+    "test:bookingHistory": "playwright test bookingHistory.spec.ts --project=chromium --headed",
+    "test:apibooking": "playwright test apiBooking.spec.ts --project=chromium --headed",
+    "test:review": "playwright test review.spec.ts --project=chromium --headed"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pbtrong321-sketch/trong-airbnb-playwright.git"
@@ -22,5 +25,8 @@
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   }
 }

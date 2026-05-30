@@ -1,5 +1,6 @@
 import {} from "@playwright/test"
 import { Page } from "@playwright/test"
+import { Locator } from "@playwright/test"
 
 export class AdminPage {
     readonly page: Page
