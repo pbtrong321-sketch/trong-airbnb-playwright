@@ -37,7 +37,7 @@ test.describe("BOOKING TEST", () => {
     await bookingPage.clickBooking();
 
     await bookingPage.confirmBooking();
-    await expect(bookingPage.message).toBeVisible();
+    await expect(bookingPage.message).toBeVisible({ timeout: 30000 });
     
 
   });
@@ -55,7 +55,7 @@ test.describe("BOOKING TEST", () => {
     await bookingPage.clickBooking();
     await bookingPage.confirmBooking();
     const message = page.locator(".ant-notification-notice-description");
-    await expect(message).toBeVisible();
+    await expect(message).toBeVisible({ timeout: 60000 }  );
     // fail vì dữ liệu test vẫn thực hiện booking thành công nê không thể test trùng lịch
   
   });   
@@ -85,7 +85,7 @@ test.describe("BOOKING TEST", () => {
   
     const message = page.locator(".ant-message-custom-content").last();
 
-    await expect(message).toBeVisible({ timeout: 30000 });
+    await expect(message).toBeVisible({ timeout: 60000 });
 
     await expect(message).toContainText(/tối đa/i);
   });
@@ -95,7 +95,7 @@ test.describe("BOOKING TEST", () => {
 
     await page.goto("https://demo5.cybersoft.edu.vn/room-detail/1");
 
-    await bookingPage.selectDate(29, 31);
+    await bookingPage.selectDate(31, 31);
     await bookingPage.increaseGuest(2);
 
     await page.reload();

@@ -1,0 +1,1 @@
+{"statusCode":201,"message":"Thêm mới thành công!","content":{"id":81301,"maPhong":7,"ngayDen":"2026-04-22T00:00:00","ngayDi":"2026-04-22T00:00:00","soLuongKhach":2,"maNguoiDung":45155},"dateTime":"2026-05-30T17:18:06.8980007+07:00"}

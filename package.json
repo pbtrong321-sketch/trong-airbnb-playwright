@@ -9,7 +9,9 @@
     "test:booking": "playwright test booking.spec.ts --project=chromium --headed",
     "test:bookingHistory": "playwright test bookingHistory.spec.ts --project=chromium --headed",
     "test:apibooking": "playwright test apiBooking.spec.ts --project=chromium --headed",
-    "test:review": "playwright test review.spec.ts --project=chromium --headed"
+    "test:review": "playwright test review.spec.ts --project=chromium --headed",
+    "allure:generate": "allure generate ./allure-results --clean -o ./allure-report",
+    "allure:open": "allure open ./allure-report"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,8 @@
   "homepage": "https://github.com/pbtrong321-sketch/trong-airbnb-playwright#readme",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
-    "@types/node": "^25.6.0"
+    "@types/node": "^25.6.0",
+    "allure-playwright": "^3.9.0"
   },
   "dependencies": {
     "dotenv": "^17.4.2"
